@@ -146,7 +146,11 @@
     <section class="hero teaser">
         <div class="container is-max-desktop">
             <div class="hero-body">
-                <img src="static/images/img_teaser.jpg"/>
+                <!-- Video teaser -->
+                <video id="teaser" autoplay muted loop height="100">
+                    <source src="static/videos/video_teaser.mp4" type="video/mp4">
+                </video>
+                <!-- !Video teaser -->
             </div>
         </div>
     </section>
@@ -185,7 +189,7 @@
         </div>
     </section>
 
-    <!-- Simulation Results -->
+    <!-- Real-world Results -->
     <section class="hero is-light is-small">
         <div class="hero-body">
             <div class="container">
@@ -196,49 +200,49 @@
                 <div id="results-carousel" class="carousel results-carousel">
                     <div class="item item-steve">
                         <video id="steve" autoplay muted loop>
-                            <source src="static/videos/real_world/lamp_on.mp4" type="video/mp4">
+                            <source src="static/videos/real_world/Turn_on_lamp_filled.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="item item-fullbody">
                         <video id="fullbody" autoplay muted loop>
-                            <source src="static/videos/real_world/open_drawer.mp4" type="video/mp4">
+                            <source src="static/videos/real_world/open_drawer_filled.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="item item-shiba">
                         <video id="shiba" autoplay muted loop>
-                            <source src="static/videos/real_world/sort_object.mp4" type="video/mp4">
+                            <source src="static/videos/real_world/sort_obj_filled.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="item item-ender">
                         <video id="ender" autoplay muted loop>
-                            <source src="static/videos/real_world/uncap_jar.mp4" type="video/mp4">
+                            <source src="static/videos/real_world/open_jar_filled.mp4" type="video/mp4">
                         </video>
                     </div>
-                    <div class="item item-kirby">
+                    <!--<div class="item item-kirby">
                         <video id="kirby" autoplay muted loop>
-                            <source src="static/videos/real_world/pull_knife.mp4" type="video/mp4">
+                            <source src="static/videos/real_world/pull_knife_filled.mp4" type="video/mp4">
                         </video>
-                    </div>
+                    </div>-->
                     <div class="item item-pokemon">
                         <video id="pokemon" autoplay muted loop>
-                            <source src="static/videos/real_world/reasoning_task.mp4" type="video/mp4">
+                            <source src="static/videos/real_world/set_dice_filled.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="item item-chansey">
                         <video id="chansey" autoplay muted loop>
-                            <source src="static/videos/real_world/pick_cube.mp4" type="video/mp4">
+                            <source src="static/videos/real_world/close_laptop_filled.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="item item-pikachu">
                         <video id="pikachu" autoplay muted loop>
-                            <source src="static/videos/real_world/pick_up_cup.mp4" type="video/mp4">
+                            <source src="static/videos/real_world/press_switch_filled.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- /Simulation Results -->
+    <!-- /Real-world Results -->
 
     <!-- Simulation generated data -->
     <section class="section">
@@ -258,13 +262,16 @@
                                         <option value="manipulate_anything" selected="selected">Manipulate Anything</option>
                                         <option value="voxposer">Voxposer</option>
                                         <option value="code_as_policies">Code as policies</option>
+                                        <option value="scaling_up">Scaling Up</option>
                                         <option value="rlbench">Rlbench</option>
                                     </select>
                                 </div>
                                 applied to task
                                 <div class="select is-small">
                                     <select id="single-menu-tasks" onchange="updateSimulationGeneratedDataVideo()">
-                                        <option value="pick_and_lift" selected="selected">pick and lift</option>
+                                        <option value="play_jenga_mod" selected="selected">insert block</option>
+                                        <option value="slide_block_mod">push block</option>
+                                        <option value="pick_and_lift">pick and lift</option>
                                         <option value="close_box">close box</option>
                                         <option value="lamp_on">lamp on</option>
                                         <option value="open_box">open box</option>
@@ -343,25 +350,17 @@
 
     <!-- Image MA_Framework -->
     <section class="section">
-        <div class="container is-max-desktop">
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-3">Manipulate-Anything Framework</h2>
-                    <img src="static/images/img_manipulate_anything_framework.png" />
-                    <p class="caption">
-                        The process begins by inputting a scene representation and a natural
-                        language task instruction into a VLM, which identifies objects and determines
-                        sub-goals. For each sub-goal, we provide multi-view images, verification
-                        conditions, and task goals to the action generation module, producing a
-                        task-specific grasp pose or action code. This leads to a temporary goal
-                        state, assessed by the sub-goal verification module for error recovery.
-                        Once all sub-goals are achieved, we filter the trajectories to obtain
-                        successful demonstrations for downstream policy training.
-                    </p>
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Manipulate-Anything Framework</h2>
+                <img src="static/images/img_manipulate_anything_framework.png" />
+                <p class="caption">The process begins by inputting a scene representation and a natural language task instruction into a VLM, which identifies objects and determines sub-goals. For each sub-goal, we provide multi-view images, verification conditions, and task goals to the action generation module, producing a task-specific grasp pose or action code. This leads to a temporary goal state, assessed by the sub-goal verification module for error recovery. Once all sub-goals are achieved, we filter the trajectories to obtain successful demonstrations for downstream policy training.</p>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- /Image MA_Framework -->
 
     <!-- Image MA_Action_Generation_Module -->
@@ -371,17 +370,8 @@
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Action Generation Module</h2>
                     <img src="static/images/img_action_generation_module.png" />
-                    <p class="caption">
-                        This module enables generation of two types of actions: object-centric
-                        and agent centric. For object-centric actions which require manipulation
-                        of an object, we leverage a foundation grasp model to generate all
-                        suitable grasps. Next, we leverage a VLM to detect the object from
-                        mult-view frames, and along with the candidate grasp poses and target
-                        subgoal, query the VLM to select the best view point. 
-                        We filter and select the optimal grasp for the sub-goal. For more
-                        agent-centric actions, the view-point selection process is the same,
-                        and the goal is to output code representing the change in pose of the
-                        end-effector from the current frame.</p>
+                    <p class="caption">This module enables generation of two types of actions: object-centric and agent centric. For object-centric actions which require manipulation of an object, we leverage a foundation grasp model to generate all suitable grasps. Next, we leverage a VLM to detect the object from mult-view frames, and along with the candidate grasp poses and target subgoal, query the VLM to select the best view point. 
+  We filter and select the optimal grasp for the sub-goal. For more agent-centric actions, the view-point selection process is the same, and the goal is to output code representing the change in pose of the end-effector from the current frame.</p>
                 </div>
             </div>
         </div>
@@ -395,14 +385,6 @@
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Action Distribution</h2>
                     <img src="static/images/img_action_distribution.png" />
-                    <p class="caption">
-                        We compare the action distribution of data generated by various methods
-                        against human-generated demonstrations via RLBench on the same set
-                        of tasks. We observed a high similarity between the distribution
-                        of our generated data and thehuman-generated data. This is further
-                        supported by the computed CD between our methods and the RLBench data,
-                        which yields the lowest (CD=0.056).
-                    </p>
                 </div>
             </div>
         </div>
